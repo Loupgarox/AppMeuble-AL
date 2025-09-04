@@ -33,3 +33,77 @@ c.largeur = 200;
 c.hauteur = 100;
 
 console.log("largeur: " + c.largeur + " hauteur: " + c.hauteur);
+
+// Ajout d'une méthode affiche pour l'objet référencé par b
+
+b.affiche = function ()
+{
+    console.log("largeur: " + this.largeur + " hauteur: " + this.hauteur);
+};
+
+// Appel de la méthode affiche pour l'objet b
+
+b.affiche();
+
+// Copie de la référence de la méthode affiche de b dans un nouvel
+// attribut affiche pour l'objet a
+
+a.affiche = b.affiche;
+
+// Appel de la méthode affiche pour l'objet a
+
+a.affiche();
+
+// Ajout d'une méthode affiche pour l'objet référencé par c
+
+c.affiche = function ()
+{
+    console.log("special c: largeur: " + this.largeur + " hauteur: " + this.hauteur);
+};
+
+// Appel de la méthode affiche pour l'objet c
+
+c.affiche();
+
+// Création d'un tableau
+
+let t = [ 1,4, "toto", 4.5 ];
+
+// Ajout d'une nouvelle case
+t[4] = "titi";
+
+
+for(let i = 0; i<t.length; i++)
+{
+    console.log( t[i] );
+}
+
+// Création d'un dictionnaire en JS
+d = [];
+
+d["largeur"] = 300 ;
+d["hauteur"] = 200 ;
+
+console.log("largeur: " + d["largeur"] + " hauteur: " + d["hauteur"]);
+
+// Modification des valeurs du dictionnaire
+
+d["largeur"] += 50 ;
+
+d.hauteur += 50 ;
+
+console.log("largeur: " + d["largeur"] + " hauteur: " + d["hauteur"]);
+
+c["hauteur"] += 50 ;
+c.affiche() ;
+
+d["affiche"] = c.affiche ;
+d.affiche() ;
+
+// Parcour du dictionnaire pour afficher ses valeurs
+for(let x in d)
+{
+    console.log( x + " : " + d[x]);
+}
+
+
