@@ -5,6 +5,8 @@ describe( "MeModule test sur les valeurs d'attribut", function()
 {
    let m1 = new MeModule( 100, 350, 50 );
 
+   m1.largeur = 500;
+
    test( "Largeur doit être > à 30 et < à 120", function()
    {
         expect( m1.largeur ).toBeGreaterThanOrEqual(30);
