@@ -26,14 +26,19 @@ export class MeModule
             this.profondeur = profondeur;
     }
 
-    // Getter sur l'attribut _largeur
+    // Getter sur la propriété _largeur
     get largeur()
     {
-        return this._largeur;
+        return this._largeur; //retourne la valeur de l'attribut _largeur
     }
 
     set largeur( valeur )
     {
-        this._largeur = valeur ;
+        if (valeur < 30)
+            this._largeur = 30;
+        else if (valeur > 120)
+            this._largeur = 120;
+        else
+            this._largeur = valeur;
     }
 }
