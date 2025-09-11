@@ -4,26 +4,20 @@ export class MeModule
 {
     constructor( largeur=30, hauteur=10, profondeur=30 )
     {
-        if (largeur < 30)
-            this._largeur = 30;
-        else if (largeur > 120)
-            this._largeur = 120;
-        else
-            this._largeur = largeur;
+        // On cree et initialise des attributs
+        this._largeur = MeModule.largeurMin;
+        this._hauteur = MeModule.hauteurMin;
+        this._profondeur = MeModule.profondeurMin;
 
-        if (hauteur < 30)
-            this.hauteur = 30;
-        else if (hauteur > 120)
-            this.hauteur = 120;
-        else
+        // On met à jour les attributs
+        try {
+            this.largeur = largeur;
             this.hauteur = hauteur;
-
-         if (profondeur < 30)
-            this.profondeur = 30;
-        else if (profondeur > 120)
-            this.profondeur = 120;
-        else
             this.profondeur = profondeur;
+        }
+        catch (erreur){
+            console.error( erreur );
+        }
     }
 
     // Getter sur la propriété _largeur
@@ -34,11 +28,50 @@ export class MeModule
 
     set largeur( valeur )
     {
-        if (valeur < 30)
-            this._largeur = 30;
-        else if (valeur > 120)
-            this._largeur = 120;
+        if (valeur < MeModule.largeurMin)
+            throw "La largeur doit etre superieur ou egale a " + MeModule.largeurMin ;
+        else if (valeur > MeModule.largeurMax)
+            throw "La largeur doit etre inferieur ou egale a " + MeModule.largeurMax ;
         else
             this._largeur = valeur;
     }
+
+    get hauteur()
+    {
+        return this._hauteur; //retourne la valeur de l'attribut _hauteur
+    }
+
+    set hauteur( valeur )
+    {
+        if (valeur < MeModule.hauteurMin)
+            throw "La hauteur doit etre superieur ou egale a " + MeModule.hauteurMin ;
+        else if (valeur > MeModule.hauteurMax)
+            throw "La hauteur doit etre inferieur ou egale a " + MeModule.hauteurMax ;
+        else
+            this._hauteur = valeur;
+    }
+
+    get profondeur()
+    {
+        return this._profondeur; //retourne la valeur de l'attribut _profondeur
+    }
+
+    set profondeur( valeur )
+    {
+        if (valeur < MeModule.profondeurMin)
+            throw "La profondeur doit etre superieur ou egale a " + MeModule.profondeurMin ;
+        else if (valeur > MeModule.profondeurMax)
+            throw "La profondeur doit etre inferieur ou egale a " + MeModule.profondeurMax ;
+        else
+            this._profondeur = valeur;
+    }
+
+    // Creation d'attributs de classe pour stocker les limites
+    static largeurMin = 30 ;
+    static largeurMax = 120;
+    static hauteurMin = 30 ;
+    static hauteurMax = 300;
+    static profondeurMin = 30 ;
+    static profondeurMax = 120;
+
 }
