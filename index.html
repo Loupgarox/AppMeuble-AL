@@ -1,10 +1,31 @@
 <html>
     <head>
+        <link href="style.css">
         <title>App Meuble</title>
     </head>
     <body>
         <div id="main">
             Bonjour
+            <div id="FormMeModule" class="FormMeModule">
+                <div>
+                    <label>Largeur : </label>
+                    <input type="number" class="InputNumber largeur"/>
+                </div>
+                <div>
+                    <label>Hauteur : </label>
+                    <input type="number" class="InputNumber hauteur"/>
+                </div>
+                <div>
+                    <label>Profondeur : </label>
+                    <input type="number" class="InputNumber profondeur"/>
+                </div>
+                <div>
+                    <button id="btnOk">Ok</button>
+                </div>
+                <div>
+                    <button id="btnCancel">Cancel</button>
+                </div>
+            </div>
         </div>
         <script type="module" src="index.js"></script>
     </body>

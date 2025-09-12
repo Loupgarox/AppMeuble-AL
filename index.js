@@ -1,3 +1,4 @@
+import { FormMeModule } from "./src/meuble/FormMeModule";
 import { MeModule } from "./src/meuble/MeModule";
 
 let m1 = new MeModule( 100, 5, 200 );
@@ -20,5 +21,13 @@ catch( messageErreur )
 }
 
 alert(m2._largeur);
+
+console.log( m2 );
+
+let form1 = new FormMeModule( "FormMeModule" );
+
+form1.updateForm( m2 );
+
+m2.largeur = 40;
 
 console.log( m2 );

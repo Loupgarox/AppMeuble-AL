@@ -69,7 +69,7 @@ export class MeModule
     // Creation d'attributs de classe pour stocker les limites
     static largeurMin = 30 ;
     static largeurMax = 120;
-    static hauteurMin = 30 ;
+    static hauteurMin = 10 ;
     static hauteurMax = 300;
     static profondeurMin = 30 ;
     static profondeurMax = 120;
