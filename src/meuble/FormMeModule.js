@@ -1,9 +1,11 @@
-export class FormMeModule
+import { View } from "../../mvc/View";
+
+export class FormMeModule extends View
 {
     constructor(idForm)
     {
+        super();
         this.idForm = idForm;
-        this.modele = null;
 
         let div = document.getElementById( this.idForm );
         if( div )
@@ -28,9 +30,9 @@ export class FormMeModule
         }
     }
 
-    updateForm( me=null )
+    updateView( modele )
     {
-        if(me) this.modele = me;
+        super.updateView(modele);
 
         let div = document.getElementById( this.idForm );
         if( div )
@@ -72,7 +74,7 @@ export class FormMeModule
 
     onOk()
     {
-        alert("ok");
+        // alert("ok");
         this.updateModele();
         console.log(this.modele);
     }
