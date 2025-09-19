@@ -1,6 +1,6 @@
-import { FormMeModule } from "./src/meuble/FormMeModule";
-import { MeModule } from "./src/meuble/MeModule";
-import { Controler } from "./mvc/Controler";
+import { FormMeModule } from "./src/meuble/FormMeModule.js";
+import { MeModule } from "./src/meuble/MeModule.js";
+import { Controler } from "./mvc/Controler.js";
 
 let m1 = new MeModule( 100, 5, 200 );
 

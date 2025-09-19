@@ -1,5 +1,5 @@
 
-import { MeModule } from "../../src/meuble/MeModule";
+import { MeModule } from "../../src/meuble/MeModule.js";
 
 describe( "MeModule test sur les valeurs d'attribut", function()
 {

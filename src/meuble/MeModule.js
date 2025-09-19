@@ -1,4 +1,4 @@
-import { Modele } from "../../mvc/Modele";
+import { Modele } from "../../mvc/Modele.js";
 
 export class MeModule extends Modele
 {

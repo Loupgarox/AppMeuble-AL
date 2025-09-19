@@ -1,4 +1,4 @@
-import { View } from "../../mvc/View";
+import { View } from "../../mvc/View.js";
 
 export class FormMeModule extends View
 {
