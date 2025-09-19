@@ -1,54 +1,25 @@
-import { View } from "../../mvc/View.js";
+import { Formview } from "../../mvc/FormView.js";
 
-export class FormMeModule extends View
+export class FormMeModule extends Formview
 {
     constructor(idForm)
     {
-        super();
-        this.idForm = idForm;
-
-        let div = document.getElementById( this.idForm );
-        if( div )
-        {
-            let btnOk = div.getElementsByClassName( "btnOk" );
-            if( btnOk.length > 0 )
-            {
-                btnOk[0].addEventListener( "click", ()=>
-                {
-                    this.onOk();
-                });
-            }
-
-            let btnCancel = div.getElementsByClassName( "btnCancel" );
-            if( btnCancel.length > 0 )
-            {
-                btnCancel[0].addEventListener( "click", ()=>
-                {
-                    this.onCancel();
-                });
-            }
-        }
+        super(idForm);
     }
 
     updateView( modele )
     {
         super.updateView(modele);
 
-        let div = document.getElementById( this.idForm );
-        if( div )
+        this.updateInputElement("largeur");
+        this.updateInputElement("hauteur");
+        this.updateInputElement("profondeur");
+        this.updateInputElement("couleur");
+
+        this.updateInputElement("volume", ()=>
         {
-            let inputLargeur = div.getElementsByClassName( "largeur" )[0];
-            if( inputLargeur ) inputLargeur.value = this.modele.largeur ;
-
-            let inputHauteur = div.getElementsByClassName( "hauteur" )[0];
-            if( inputHauteur ) inputHauteur.value = this.modele.hauteur ;
-
-            let inputProfondeur = div.getElementsByClassName( "profondeur" )[0];
-            if( inputProfondeur ) inputProfondeur.value = this.modele.profondeur ;
-
-            let inputCouleur = div.getElementsByClassName( "couleur" )[0];
-            if( inputCouleur ) this.modele.couleur = inputCouleur.value;
-        }
+            return this.modele.largeur * this.modele.hauteur * this.modele.profondeur;
+        })
     }
 
     updateModele(me=null)
@@ -59,29 +30,50 @@ export class FormMeModule extends View
         if( div )
         {
             let inputLargeur = div.getElementsByClassName( "largeur" )[0];
-            if( inputLargeur ) this.modele.largeur = parseInt(inputLargeur.value);
+            if( inputLargeur )
+            {
+                try
+                {
+                    this.modele.largeur = parseInt(inputLargeur.value);
+                }
+                catch(message)
+                {
+                    this.onError(message);
+                }
+            }
 
             let inputHauteur = div.getElementsByClassName( "hauteur" )[0];
-            if( inputHauteur ) this.modele.hauteur = parseInt(inputHauteur.value);
+            if( inputHauteur )
+            {
+                try
+                {
+                    this.modele.hauteur = parseInt(inputHauteur.value);
+                }
+                catch(message)
+                {
+                    this.onError(message);
+                }
+            } 
 
             let inputProfondeur = div.getElementsByClassName( "profondeur" )[0];
-            if( inputProfondeur ) this.modele.profondeur = parseInt(inputProfondeur.value);
-
+            if( inputProfondeur )
+            {
+                try
+                {
+                    this.modele.profondeur = parseInt(inputProfondeur.value);
+                }
+                catch(message)
+                {
+                    this.onError(message);
+                }
+            }
             let inputCouleur = div.getElementsByClassName( "couleur" )[0];
             if( inputCouleur ) this.modele.couleur = inputCouleur.value;
         }
     }
 
-    onOk()
+    onError(message)
     {
-        // alert("ok");
-        this.updateModele();
-        console.log(this.modele);
-    }
-
-    onCancel()
-    {
-        alert("Cancel")
-        this.updateModele();
+        alert("FormMeModule erreur: " + message);
     }
 }

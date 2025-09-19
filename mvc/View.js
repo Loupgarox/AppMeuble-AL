@@ -16,4 +16,9 @@ export class View
     {
 
     }
+
+    onError(message)
+    {
+        
+    }
 }
