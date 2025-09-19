@@ -48,7 +48,7 @@ export class Formview extends View
         }
     }
 
-    updateModeleFromInputElement(idInput, fctGetInputValue=null)
+    updateModeleFromInputElement(idInput, valueType="string", fctGetInputValue=null)
     {
         if(this.rootELement)
         {
@@ -57,14 +57,32 @@ export class Formview extends View
             {
                 if(fctGetInputValue)
                 {
-                    let value = fctGetInputValue();
-                    input.value = value ;
+                    let value = fctGetInputValue(input.value);
+                    try
+                    {
+                        this.modele[idInput] = value ;
+                    }
+                    catch(message)
+                    {
+                        this.onError(message);
+                    }
+                    
                 }
                 else
                 {
                     try
                     {
-                        this.modele[idInput] = parseInt(input.value);
+                        switch(valueType)
+                        {
+                            case "integer":
+                                this.modele[idInput] = parseInt(input.value);
+                                break;
+                            case "float":
+                                this.modele[idInput] = parseFloat(input.value);
+                                break;
+                            default:
+                                this.modele[idInput] = input.value;
+                        }
                     }
                     catch(message)
                     {

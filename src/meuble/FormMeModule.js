@@ -26,50 +26,10 @@ export class FormMeModule extends Formview
     {
         // if(me) this.modele = me;
 
-        let div = document.getElementById( this.idForm );
-        if( div )
-        {
-            let inputLargeur = div.getElementsByClassName( "largeur" )[0];
-            if( inputLargeur )
-            {
-                try
-                {
-                    this.modele.largeur = parseInt(inputLargeur.value);
-                }
-                catch(message)
-                {
-                    this.onError(message);
-                }
-            }
-
-            let inputHauteur = div.getElementsByClassName( "hauteur" )[0];
-            if( inputHauteur )
-            {
-                try
-                {
-                    this.modele.hauteur = parseInt(inputHauteur.value);
-                }
-                catch(message)
-                {
-                    this.onError(message);
-                }
-            } 
-
-            let inputProfondeur = div.getElementsByClassName( "profondeur" )[0];
-            if( inputProfondeur )
-            {
-                try
-                {
-                    this.modele.profondeur = parseInt(inputProfondeur.value);
-                }
-                catch(message)
-                {
-                    this.onError(message);
-                }
-            }
-            let inputCouleur = div.getElementsByClassName( "couleur" )[0];
-            if( inputCouleur ) this.modele.couleur = inputCouleur.value;
-        }
+        this.updateModeleFromInputElement("largeur", "integer");
+        this.updateModeleFromInputElement("hauteur", "integer");
+        this.updateModeleFromInputElement("profondeur", "integer");
+        this.updateModeleFromInputElement("couleur");
     }
 
     onError(message)
