@@ -10,19 +10,19 @@ export class FormMeModule extends View
         let div = document.getElementById( this.idForm );
         if( div )
         {
-            let btnOk = document.getElementById( "btnOk" );
-            if( btnOk )
+            let btnOk = div.getElementsByClassName( "btnOk" );
+            if( btnOk.length > 0 )
             {
-                btnOk.addEventListener( "click", ()=>
+                btnOk[0].addEventListener( "click", ()=>
                 {
                     this.onOk();
                 });
             }
 
-            let btnCancel = document.getElementById( "btnCancel" );
-            if( btnCancel )
+            let btnCancel = div.getElementsByClassName( "btnCancel" );
+            if( btnCancel.length > 0 )
             {
-                btnCancel.addEventListener( "click", ()=>
+                btnCancel[0].addEventListener( "click", ()=>
                 {
                     this.onCancel();
                 });
@@ -53,7 +53,7 @@ export class FormMeModule extends View
 
     updateModele(me=null)
     {
-        if(me) this.modele = me;
+        // if(me) this.modele = me;
 
         let div = document.getElementById( this.idForm );
         if( div )
