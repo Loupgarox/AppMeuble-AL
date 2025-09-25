@@ -7,6 +7,27 @@ export class Formview extends View
         super();
         this.idForm = idForm;
         this.template =template;
+        this.rootELement = document.getElementById( this.idForm );
+        this.render();
+    }
+
+    async loadHtml()
+    {
+        let reponse = await window.fetch(this.template, {method: "GET"});
+        let html = await reponse.text();
+        return html;
+    }
+
+    async render()
+    {
+        if(this.rootELement)
+        {
+            if(this.template && !this.rootELement.children.length)
+            {
+                let html = await this.loadHtml(this.template);
+                this.rootELement.innerHTML = html;
+            }
+        }
 
         this.rootELement = document.getElementById( this.idForm );
         if( this.rootELement )
@@ -29,11 +50,6 @@ export class Formview extends View
                 });
             }
         }
-    }
-
-    async loadHtml()
-    {
-        let html = 
     }
 
     updateInputElement(idInput, fctGetModeleValue=null)

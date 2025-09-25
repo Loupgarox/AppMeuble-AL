@@ -1,6 +1,7 @@
-import { FormMeModule } from "./ihm/FormMeModule.js";
+import { FormMeModule } from "./src/ihm/FormMeModule.js";
 import { MeModule } from "./src/meuble/MeModule.js";
 import { Controler } from "./mvc/Controler.js";
+import { DrawMeModule } from "./src/ihm/DrawMeModule.js";
 
 let m1 = new MeModule( 100, 5, 200 );
 
@@ -29,6 +30,7 @@ let ctrl1 = new Controler();
 
 ctrl1.addView(new FormMeModule("FormMeModule"));
 ctrl1.addView(new FormMeModule("FormMeModule2"));
+ctrl1.addView(new DrawMeModule("DrawMeModule1"));
 
 ctrl1.updateAllViews(m2);
 

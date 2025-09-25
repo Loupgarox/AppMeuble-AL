@@ -1,10 +1,10 @@
-import { Formview } from "../mvc/FormView.js";
+import { Formview } from "../../mvc/FormView.js";
 
 export class FormMeModule extends Formview
 {
     constructor(idForm)
     {
-        super(idForm);
+        super(idForm, "src/ihm/FormMeModule_.html");
     }
 
     updateView( modele )
