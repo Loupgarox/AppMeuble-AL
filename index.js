@@ -1,4 +1,4 @@
-import { FormMeModule } from "./src/meuble/FormMeModule.js";
+import { FormMeModule } from "./ihm/FormMeModule.js";
 import { MeModule } from "./src/meuble/MeModule.js";
 import { Controler } from "./mvc/Controler.js";
 

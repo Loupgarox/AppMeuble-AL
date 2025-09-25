@@ -1,4 +1,4 @@
-import { Formview } from "../../mvc/FormView.js";
+import { Formview } from "../mvc/FormView.js";
 
 export class FormMeModule extends Formview
 {

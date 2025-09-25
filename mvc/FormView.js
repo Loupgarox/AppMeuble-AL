@@ -2,10 +2,11 @@ import { View } from "./View.js";
 
 export class Formview extends View
 {
-    constructor(idForm)
+    constructor(idForm, template=null)
     {
         super();
         this.idForm = idForm;
+        this.template =template;
 
         this.rootELement = document.getElementById( this.idForm );
         if( this.rootELement )
@@ -28,6 +29,11 @@ export class Formview extends View
                 });
             }
         }
+    }
+
+    async loadHtml()
+    {
+        let html = 
     }
 
     updateInputElement(idInput, fctGetModeleValue=null)
