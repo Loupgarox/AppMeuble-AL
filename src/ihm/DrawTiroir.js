@@ -8,7 +8,7 @@ export class DrawTiroir extends DrawMeModule {
     updateView(modele) {
         super.updateView(modele);
 
-        const draw = document.getElementById(this.idDraw);
+        let draw = document.getElementById(this.idDraw);
 
         if (draw && this.modele) {
             draw.style.position = "relative";

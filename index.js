@@ -39,9 +39,6 @@ ctrl1.addView( new DrawMeModule( "DrawMeModule1")) ;
 ctrl1.updateAllViews( m2 ) ;
 
 m2.couleur = "#FF0000" ;
-m2.largeur = 40 ;
-
-console.log( m2 ) ;
 
 // Tiroir
 
