@@ -6,9 +6,9 @@ import { Tiroir } from "./src/meuble/Tiroir.js" ;
 import { FormTiroir } from "./src/ihm/FormTiroir.js";
 import { DrawTiroir } from "./src/ihm/DrawTiroir.js";
 
-let m1 = new MeModule( 100, 5, 200 ) ;
+// let m1 = new MeModule( 100, 5, 200 ) ;
 
-console.log( m1 ) ;
+// console.log( m1 ) ;
 
 let m2 = new MeModule( 400 ) ;
 

@@ -4,7 +4,6 @@ import {FormView} from "../mvc/FormView.js"
 
 export class FormMeModule extends FormView
 {
-    // idForm: Identifiant de la balise HTML contenant le formulaire
     constructor( idForm, template="src/ihm/FormMeModule_.html" )
     {
         super( idForm, template ) ;
@@ -12,7 +11,7 @@ export class FormMeModule extends FormView
 
     updateView( modele )
     {
-        let result = super.updateView( modele ) ; // Appel de updateView de la classe mère View
+        let result = super.updateView( modele ) ;
 
         this.updateInputElement( "largeur" )
         this.updateInputElement( "hauteur" ) ;
@@ -23,7 +22,13 @@ export class FormMeModule extends FormView
         {
             return this.modele.largeur * this.modele.hauteur * this.modele.profondeur;
         }) ;
-        return result ;
+
+        let idInput = document.getElementById(this.idForm).querySelector("#id");
+        if (idInput && this.modele) {
+            idInput.value = this.modele.id;
+        }
+
+        return result;
     }
 
     updateModele()
