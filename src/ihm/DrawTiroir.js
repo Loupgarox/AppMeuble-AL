@@ -1,11 +1,21 @@
-import { DrawMeModule } from "./DrawMeModule";
+import { DrawMeModule } from "./DrawMeModule.js";
 
 export class DrawTiroir extends DrawMeModule
 {
-    constructor()
+    constructor(idDraw)
     {
-        super() ;
+        super(idDraw) ;
     }
 
-    
+    updateView( modele )
+    {
+        super.updateView( modele ) ;
+        let draw = document.getElementById(this.idDraw);
+
+        if( draw && this.modele )
+        {
+            draw.style.borderRadius = "50%";
+        }
+        return true ;
+    }
 }

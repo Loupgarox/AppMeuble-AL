@@ -4,6 +4,7 @@ import { Controler } from "./src/mvc/Controler.js";
 import { DrawMeModule } from "./src/ihm/DrawMeModule.js";
 import { Tiroir } from "./src/meuble/Tiroir.js" ;
 import { FormTiroir } from "./src/ihm/FormTiroir.js";
+import { DrawTiroir } from "./src/ihm/DrawTiroir.js";
 
 let m1 = new MeModule( 100, 5, 200 ) ;
 
@@ -49,6 +50,7 @@ let t1 = new Tiroir( 100, 30, 50, "#00FFFF", "ronde" ) ;
 let ctrl2 = new Controler() ;
 ctrl2.addView( new FormTiroir( "FormTiroir1") ) ;
 ctrl2.addView( new DrawMeModule( "DrawTiroir1")) ;
+ctrl2.addView( new DrawTiroir( "DrawTiroir1" ));
 
 ctrl2.updateAllViews( t1 ) ;
 
