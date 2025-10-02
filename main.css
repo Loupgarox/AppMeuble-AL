@@ -16,3 +16,18 @@
     width: 100px;
     height: 50px;
 }
+
+.poignee-visuelle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+}
+
+.poignee-visuelle.ronde {
+    border-radius: 50%;
+}
+
+.poignee-visuelle.rectangulaire {
+    border-radius: 5px;
+}
