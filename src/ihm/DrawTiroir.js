@@ -13,7 +13,7 @@ export class DrawTiroir extends DrawMeModule {
         if (draw && this.modele) {
             draw.style.position = "relative";
 
-            // Créer ou récupérer la poignée
+            // Créer/récupérer la poignée
             let poigneeDiv = draw.querySelector(".poignee-visuelle");
             if (!poigneeDiv) {
                 poigneeDiv = document.createElement("div");
@@ -21,14 +21,13 @@ export class DrawTiroir extends DrawMeModule {
                 draw.appendChild(poigneeDiv);
             }
 
-            // Centrer
+            // Centrage
             poigneeDiv.style.top = "50%";
             poigneeDiv.style.left = "50%";
 
-            // Couleur
+            // Couleur de la poignée
             poigneeDiv.style.backgroundColor = this.modele.couleurpoignee;
 
-            // Nettoyer les anciennes classes de forme
             poigneeDiv.classList.remove("ronde", "rectangulaire");
 
             // Ajouter la bonne forme
