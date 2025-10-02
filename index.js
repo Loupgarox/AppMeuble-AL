@@ -45,7 +45,7 @@ console.log( m2 ) ;
 
 // Tiroir
 
-let t1 = new Tiroir( 100, 30, 50, "#00FFFF", "ronde" ) ;
+let t1 = new Tiroir( 40, 30, 30, "#00FFFF", "ronde" ) ;
 
 let ctrl2 = new Controler() ;
 ctrl2.addView( new FormTiroir( "FormTiroir1") ) ;
