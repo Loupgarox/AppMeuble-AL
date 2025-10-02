@@ -30,6 +30,10 @@ export class DrawMeModule extends View
 
             idDiv.innerText = this.modele.id;
             idDiv.style.color = this.getTextContrastColor(this.modele.couleur);
+            idDiv.style.position = "absolute";
+            idDiv.style.left = "50%";
+            idDiv.style.transform = "translateX(-50%)";
+
         }
         return true ;
     }
