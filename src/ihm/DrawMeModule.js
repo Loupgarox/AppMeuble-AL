@@ -19,6 +19,7 @@ export class DrawMeModule extends View
             draw.style.width = this.modele.largeur + "px" ;
             draw.style.height = this.modele.hauteur + "px" ;
             draw.style.backgroundColor = this.modele.couleur ;
+            // draw.style.borderRadius = "50%";
         }
         return true ;
     }
