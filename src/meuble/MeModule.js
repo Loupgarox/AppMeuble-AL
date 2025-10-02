@@ -2,9 +2,13 @@ import { Modele } from "../mvc/Modele.js";
 
 export class MeModule extends Modele
 {
-    constructor( largeur=30, hauteur=10, profondeur=30, couleur="#C0C0C0" )
+    static moduleCpt = 0;
+
+    constructor( largeur=30, hauteur=10, profondeur=30, couleur="#C0C0C0", id = undefined )
     {
         super() ; //Appel du constructeur de Modele
+
+        this._id = (id != null) ? id : `MM${++MeModule.moduleCpt}`;
 
         // On cree et initialise les attributs
         this._largeur = MeModule.largeurMin ;
@@ -23,6 +27,14 @@ export class MeModule extends Modele
         {
             console.error( erreur ) ;
         }
+    }
+
+    get id() {
+        return this._id;
+    }
+
+    set id(valeur) {
+        this._id = valeur;
     }
 
     getHash()
