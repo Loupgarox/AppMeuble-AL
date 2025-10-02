@@ -1,54 +1,58 @@
-import { FormMeModule } from "./src/ihm/FormMeModule.js";
 import { MeModule } from "./src/meuble/MeModule.js";
-import { Controler } from "./mvc/Controler.js";
+import { FormMeModule } from "./src/ihm/FormMeModule.js";
+import { Controler } from "./src/mvc/Controler.js";
 import { DrawMeModule } from "./src/ihm/DrawMeModule.js";
+import { Tiroir } from "./src/meuble/Tiroir.js" ;
 import { FormTiroir } from "./src/ihm/FormTiroir.js";
 
-let m1 = new MeModule( 100, 5, 200 );
+let m1 = new MeModule( 100, 5, 200 ) ;
 
-console.log( m1 );
+console.log( m1 ) ;
 
-let m2 = new MeModule( 400 );
+let m2 = new MeModule( 400 ) ;
 
-console.log( m2 );
+console.log( m2 ) ;
 
 try
-{   
-    // On fait la mise a jour
-    m2.largeur = 500;
+{
+    // On fait la mise à jour
+    m2.largeur = 500 ;
 } 
 catch( messageErreur )
 {
     // On traite l'erreur
-    console.log( messageErreur );
+    console.error( messageErreur ) ;
 }
 
-// alert(m2._largeur);
 
-console.log( m2 );
+//alert( m2.largeur ) ;
 
-let ctrl1 = new Controler();
+console.log( m2 ) ;
 
-ctrl1.addView(new FormMeModule("FormMeModule"));
-ctrl1.addView(new FormMeModule("FormMeModule2"));
-ctrl1.addView(new DrawMeModule("DrawMeModule1"));
+let ctrl1 = new Controler() ;
 
-ctrl1.updateAllViews(m2);
+ctrl1.addView( new FormMeModule( "FormMeModule1" ) ) ;
+ctrl1.addView( new FormMeModule( "FormMeModule2" ) ) ;
+ctrl1.addView( new DrawMeModule( "DrawMeModule1")) ;
 
-let ctrl2 = new Controler();
+ctrl1.updateAllViews( m2 ) ;
 
-ctrl2.addView(new FormTiroir("FormTiroir"));
+m2.couleur = "#FF0000" ;
+m2.largeur = 40 ;
 
-/*
-let form1 = new FormMeModule( "FormMeModule" );
+console.log( m2 ) ;
 
-form1.updateForm( m2 );
+// Tiroir
 
-*/
+let t1 = new Tiroir( 100, 30, 50, "#00FFFF", "ronde" ) ;
 
-m2.couleur = "#FF0000";
-m2.largeur = 40;
+let ctrl2 = new Controler() ;
+ctrl2.addView( new FormTiroir( "FormTiroir1") ) ;
+ctrl2.addView( new DrawMeModule( "DrawTiroir1")) ;
 
-console.log( m2 );
+ctrl2.updateAllViews( t1 ) ;
 
-Controler.startUpdating();
+Controler.startUpdating() ;
+
+
+

@@ -3,32 +3,33 @@ import { MeModule } from "../../src/meuble/MeModule.js";
 
 describe( "MeModule test sur les valeurs d'attribut", function()
 {
-   let m1 = new MeModule( 100, 350, 50 );
+    let m1 = new MeModule( 100, 350, 50 ) ;
 
-   try 
-   {
-     m1.largeur = 500;
-   }
-   catch ( erreur )
-   {
-     
-   }
+    try
+    {
+        m1.largeur = 500 ;
+    }
+    catch( erreur )
+    {
+        
+    }
 
-   test( "Largeur doit être > à 30 et < à 120", function()
-   {
-        expect( m1.largeur ).toBeGreaterThanOrEqual(30);
-        expect( m1.largeur ).toBeLessThanOrEqual(120);
-   });
+    test( "Largeur doit être >= à 30 et =< à 120", function()
+    {
+        expect( m1.largeur ).toBeGreaterThanOrEqual( 30 ) ;
+        expect( m1.largeur ).toBeLessThanOrEqual( 120 ) ;
+    } );
 
-   test( "Hauteur doit être > à 10 et < à 300", function()
-   {
-        expect( m1.hauteur ).toBeGreaterThanOrEqual(10);
-        expect( m1.hauteur ).toBeLessThanOrEqual(300);
-   });
+    test( "Hauteur doit être >= à 10 et =< à 300", function()
+    {
+        expect( m1.hauteur ).toBeGreaterThanOrEqual( 10 ) ;
+        expect( m1.hauteur ).toBeLessThanOrEqual( 300 ) ;
+    } ) ;
 
-   test( "Profondeur doit être > à 30 et < à 120", function()
-   {
-        expect( m1.profondeur ).toBeGreaterThanOrEqual(30);
-        expect( m1.profondeur ).toBeLessThanOrEqual(120);
-   });
-});
+    test( "Profondeur doit être >= à 30 et =< à 120", function()
+    {
+        expect( m1.profondeur ).toBeGreaterThanOrEqual( 30 ) ;
+        expect( m1.profondeur ).toBeLessThanOrEqual( 120 ) ;
+    } ) ;
+
+}) ;

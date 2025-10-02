@@ -1,43 +1,33 @@
-import { Formview } from "../../mvc/FormView.js";
 
-export class FormTiroir extends Formview
+import {FormMeModule} from "./FormMeModule.js"
+
+export class FormTiroir extends FormMeModule
 {
-    constructor(idForm)
+    constructor( idForm, template="src/ihm/FormTiroir_.html" )
     {
-        super(idForm, "src/ihm/FormTiroir_.html");
+        super( idForm, template ) ;
     }
 
-    /*
     updateView( modele )
     {
-        super.updateView(modele);
+        let result = super.updateView( modele ) ;
 
-        this.updateInputElement("largeur");
-        this.updateInputElement("hauteur");
-        this.updateInputElement("profondeur");
-        this.updateInputElement("couleur");
-        this.updateInputElement("poignee");
+        this.updateInputElement( "poignee") ;
+        this.updateInputElement( "couleurpoignee") ;
 
-        this.updateInputElement("volume", ()=>
-        {
-            return this.modele.largeur * this.modele.hauteur * this.modele.profondeur;
-        })
+        return result ;
     }
 
     updateModele()
     {
-        // if(me) this.modele = me;
+        super.updateModele() ;
 
-        this.updateModeleFromInputElement("largeur", "integer");
-        this.updateModeleFromInputElement("hauteur", "integer");
-        this.updateModeleFromInputElement("profondeur", "integer");
-        this.updateModeleFromInputElement("couleur");
-        this.updateModeleFromInputElement("poignee");
+        this.updateModeleFromInputElement( "poignee") ;
+        this.updateModeleFromInputElement( "couleurpoignee") ;
     }
 
-    onError(message)
+    onError( message )
     {
-        alert("FormMeModule erreur: " + message);
+        alert( "FormTiroir erreur: " + message ) ;
     }
-    */
 }

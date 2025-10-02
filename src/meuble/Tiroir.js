@@ -1,25 +1,46 @@
-import { MeModule } from "./MeModule.js";
+
+import {MeModule} from "./MeModule.js"
 
 export class Tiroir extends MeModule
 {
-    constructor(poignee = "Rond")
+    constructor( largeur=80, hauteur=20, profondeur=50, couleur="#000000", poignee="ronde", couleurpoignee="#00FF00" )
     {
-        super(largeur=30, hauteur=10, profondeur=30, couleur = "#FF0000");
-        this.poignee = poignee;
-        this.couleurpoignee = couleurpoignee;
+        super( largeur, hauteur, profondeur, couleur ) ;
 
-        // On met à jour les attributs
-        try {
-            this.poignee = poignee;
-            this.couleurpoignee = couleurpoignee;
+        this._poignee = "ronde" ;
+        this.couleurpoignee = couleurpoignee ;
+
+        try
+        {
+            this.poignee = poignee ;
         }
-        catch (erreur){
-            console.error( erreur );
+        catch( message )
+        {
+            throw( message ) ;
+        }
+    }
+
+    get poignee()
+    {
+        return this._poignee ;
+    }
+
+    set poignee( valeur )
+    {
+        if( valeur == "ronde" || valeur == "rectangulaire" )
+        {
+            this._poignee = valeur ;
+        }
+        else
+        {
+            throw( "La poignée d'un tiroir doit être ronde ou rectangulaire" ) ;
         }
     }
 
     getHash()
     {
-        return "" + this._largeur + this._hauteur + this._profondeur + this.couleur + this.poignee + this.couleurpoignee;
-    } 
+        return super.getHash() + this._poignee + this.couleurpoignee ;
+    }
+
+
 }

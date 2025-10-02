@@ -1,24 +1,25 @@
 
-import { View } from "../../mvc/View.js";
+import {View} from "../mvc/View.js" ;
 
 export class DrawMeModule extends View
 {
-    constructor(idDraw)
+    constructor( idDraw )
     {
-        super();
-        this.idDraw = idDraw;
+        super() ;
+        this.idDraw = idDraw ;
     }
 
-    updateView(modele)
+    updateView( modele )
     {
-        super.updateView(modele);
+        super.updateView( modele ) ;
 
-        let draw = document.getElementById("DrawMeModule1")
-        if(draw && this.modele)
+        let draw = document.getElementById(  this.idDraw ) ;
+        if( draw && this.modele )
         {
-            draw.style.width = this.modele.largeur + "px";
-            draw.style.height = this.modele.hauteur + "px";
-            draw.style.backgroundColor = this.modele.couleur;
+            draw.style.width = this.modele.largeur + "px" ;
+            draw.style.height = this.modele.hauteur + "px" ;
+            draw.style.backgroundColor = this.modele.couleur ;
         }
+        return true ;
     }
 }
