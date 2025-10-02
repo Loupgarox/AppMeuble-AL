@@ -14,6 +14,7 @@ export class DrawTiroir extends DrawMeModule
 
         if( draw && this.modele )
         {
+            draw.style.backgroundColor = this.modele.couleur ;
             draw.style.borderRadius = "50%";
         }
         return true ;
