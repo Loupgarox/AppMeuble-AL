@@ -4,19 +4,28 @@ export class DrawTiroir extends DrawMeModule
 {
     constructor(idDraw)
     {
-        super(idDraw) ;
+        super(idDraw);
     }
 
-    updateView( modele )
+    updateView(modele)
     {
-        super.updateView( modele ) ;
-        let draw = document.getElementById(this.idDraw);
+        super.updateView(modele);
 
-        if( draw && this.modele )
+        const draw = document.getElementById(this.idDraw);
+
+        if (draw && this.modele)
         {
-            draw.style.backgroundColor = this.modele.couleur ;
-            draw.style.borderRadius = "50%";
+            draw.style.backgroundColor = this.modele.couleurpoignee;
+
+            if (this.modele.poignee === "ronde") 
+            {
+                draw.style.borderRadius = "50%";
+            } 
+            else 
+            {
+                draw.style.borderRadius = "0";
+            }
         }
-        return true ;
+        return true;
     }
 }
