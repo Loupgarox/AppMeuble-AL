@@ -2,11 +2,14 @@
 
 export class Controler
 {
-    constructor()
+    constructor( id )
     {
+        this.id = "C" + Controler.controlerCpt++ ;
         this.modele = null ;
         this.modeleHash = "" ;
         this.views = [] ; // Crée un tableau vide
+
+        if( id != undefined ) this.id = id ;
 
         // On stoke la référence du nouveau controleur dans le tableau
         // static controlers
@@ -17,6 +20,11 @@ export class Controler
     {
         // Ajoute une case avec la référence de la vue en fin de tableau
         this.views.push( view ) ; 
+    }
+
+    removeAllViews()
+    {
+        this.views = [] ;
     }
 
     updateAllViews( modele )
@@ -37,16 +45,37 @@ export class Controler
         }
     }
 
+    static getControler( id )
+    {
+        for( let i=0 ; i<Controler.controlers.length ; i++ )
+        {
+            if( Controler.controlers[i] && Controler.controlers[i].id == id ) 
+                return Controler.controlers[i] ;
+        }
+        return null ;
+    }
+
+    static removeControler( id )
+    {      
+        for( let i=0 ; i<Controler.controlers.length ; i++ )
+        {
+            if( Controler.controlers[i] && Controler.controlers[i].id == id ) 
+                Controler.controlers[i] = null ;
+        }
+    }
+
     static startUpdating()
     {
         setInterval( ()=>
         {
             Controler.controlers.forEach( (controler)=>
             {
-                controler.updateAllViews() ;
+                if( controler )
+                    controler.updateAllViews() ;
             }) ;
         }, 200 ) ;
     }
 
     static controlers = [] ; // Stocke la référence de tous les controleurs
+    static controlerCpt = 0 ;
 }

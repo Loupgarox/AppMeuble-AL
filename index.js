@@ -6,11 +6,11 @@ import { Tiroir } from "./src/meuble/Tiroir.js" ;
 import { FormTiroir } from "./src/ihm/FormTiroir.js";
 import { DrawTiroir } from "./src/ihm/DrawTiroir.js";
 
-// let m1 = new MeModule( 100, 5, 200 ) ;
+let m1 = new MeModule( null, 100, 5, 200 ) ;
 
-// console.log( m1 ) ;
+console.log( m1 ) ;
 
-let m2 = new MeModule( 400 ) ;
+let m2 = new MeModule( null, 400 ) ;
 
 console.log( m2 ) ;
 
@@ -39,19 +39,34 @@ ctrl1.addView( new DrawMeModule( "DrawMeModule1")) ;
 ctrl1.updateAllViews( m2 ) ;
 
 m2.couleur = "#FF0000" ;
+m2.largeur = 40 ;
+
+console.log( m2 ) ;
 
 // Tiroir
 
-let t1 = new Tiroir( 40, 30, 30, "#00FFFF", "ronde" ) ;
+let t1 = new Tiroir( null ,100, 30, 50, "#00FFFF", "ronde" ) ;
 
 let ctrl2 = new Controler() ;
 ctrl2.addView( new FormTiroir( "FormTiroir1") ) ;
-ctrl2.addView( new DrawMeModule( "DrawTiroir1")) ;
-ctrl2.addView( new DrawTiroir( "DrawTiroir1" ));
+ctrl2.addView( new DrawTiroir( "DrawTiroir1")) ;
 
 ctrl2.updateAllViews( t1 ) ;
 
 Controler.startUpdating() ;
 
+/*
+On crée une instance de Router qui prend en charge tous les 
+bouton appartenant à la classe de style MenuItem présent dans 
+tous le document
+On crée une instance de chacune des pages qui seront gérée par le
+routeur avec sa méthode addPage. Le premier argument de la méthode
+addPage précise le nom de la page conrrespondant à la valeur de 
+la propriété name du ou des boutons permettant d'accéder à la page.
+*/
+
+let router = new Router( "MenuItem", "main" ) ;
+router.addPage( "PageMeModule", new PageMeModule() ) ;
+router.addPage( "PageTiroir", new PageTiroir() ) ;
 
 

@@ -12,22 +12,30 @@
 
 .DrawModule
 {
-    background-color: aqua;
-    width: 100px;
-    height: 50px;
+    text-align: center;
+    font-size: small;
 }
 
-.poignee-visuelle {
-    position: absolute;
+.DrawTiroir
+{
+    align-content: center ;
+    text-align: center;
+    font-size: small;
+}
+
+.DrawPoignee
+{
+    position:relative ;
+}
+.DrawPoigneeRonde
+{
     width: 10px;
     height: 10px;
-    transform: translate(-50%, -50%);
-}
-
-.poignee-visuelle.ronde {
-    border-radius: 50%;
-}
-
-.poignee-visuelle.rectangulaire {
     border-radius: 5px;
+}
+
+.DrawPoigneeRecangulaire
+{
+    width: 20px;
+    height: 10px;
 }

@@ -19,33 +19,15 @@ export class DrawMeModule extends View
             draw.style.width = this.modele.largeur + "px" ;
             draw.style.height = this.modele.hauteur + "px" ;
             draw.style.backgroundColor = this.modele.couleur ;
-            draw.style.position = "relative";
-
-            let idDiv = draw.querySelector(".id-label");
-            if (!idDiv) {
-                idDiv = document.createElement("div");
-                idDiv.className = "id-label";
-                draw.appendChild(idDiv);
-            }
-
-            idDiv.innerText = this.modele.id;
-            idDiv.style.color = this.getTextContrastColor(this.modele.couleur);
-            idDiv.style.position = "absolute";
-            idDiv.style.left = "50%";
-            idDiv.style.transform = "translateX(-50%)";
-
+            draw.innerHTML = this.modele.id ;
+            // Calcul de la couleur du texte pour id
+            let couleur = this.modele.couleur.substring( 1,6) ;
+            couleur = parseInt( couleur, 16 ) ;
+            couleur += 123456 ; // couleur = couleur + 123456 ;
+            if( couleur > parseInt( "FFFFFF", 16))
+                couleur -= parseInt( "FFFFFF", 16)
+            draw.style.color = "#" + couleur.toString( 16 ) ;
         }
         return true ;
     }
-
-    getTextContrastColor(hexColor) 
-{
-    const r = parseInt(hexColor.substring(1, 3), 16);
-    const g = parseInt(hexColor.substring(3, 5), 16);
-    const b = parseInt(hexColor.substring(5, 7), 16);
-
-    const luminance = (r * 299 + g * 587 + b * 114) / 1000;
-
-    return luminance > 125 ? "black" : "white";
-}
 }
